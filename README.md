@@ -1,6 +1,6 @@
 **AI-Based Cyber Threat Detection**
 
-**📌 Project Overview**
+**Project Overview**
 
 This project focuses on developing an AI-powered Cyber Threat Detection System that analyzes network traffic in real-time, detects anomalies, and classifies potential cyber threats using machine learning techniques.
 
@@ -8,19 +8,15 @@ With the growing number of cyberattacks like Brute Force, SQL Injection, XSS, an
 
 This project was developed as part of my Final Year Software Development Project (SDP).
 
-**🎯 Objectives**
+**Objectives**
 
-🔎 Detect and classify cyber threats in real-time using AI models
+Detect and classify cyber threats in real-time using AI models
+Automate network traffic analysis to identify malicious behavior
+Implement anomaly detection for unusual patterns not caught by static rules
+Provide an admin dashboard for monitoring, visualization, and alerts
+Enable proactive defense against common attack vectors
 
-📡 Automate network traffic analysis to identify malicious behavior
-
-🧠 Implement anomaly detection for unusual patterns not caught by static rules
-
-📊 Provide an admin dashboard for monitoring, visualization, and alerts
-
-🛡️ Enable proactive defense against common attack vectors
-
-**⚙️ System Architecture**
+**System Architecture**
 
 **1. Data Collection Layer**
 
@@ -56,13 +52,13 @@ Built with React/Next.js + TailwindCSS
 
 Provides visualizations for threat statistics, attack breakdown, and real-time monitoring
 
-**🛠️ Tech Stack**
+**Tech Stack**
 
 Frontend: React.js / Next.js, TailwindCSS
 
 Backend: Node.js, Express.js
 
-Database: MongoDB / PostgreSQL
+Database: MongoDB
 
 AI/ML Models: Python (Scikit-learn, TensorFlow/Keras, Pandas, NumPy)
 
@@ -70,23 +66,21 @@ Visualization: Chart.js / D3.js / Recharts
 
 Security: Secure APIs, SSL/TLS, Firewall rules
 
-Hosting: Heroku / Vercel / Self-hosted server
+**Features**
 
-**📊 Features**
+Real-time threat detection with AI models
 
-✔️ Real-time threat detection with AI models
+Automatic malicious IP blocking
 
-✔️ Automatic malicious IP blocking
+Visualization dashboard for monitoring
 
-✔️ Visualization dashboard for monitoring
+Threat classification (SQLi, XSS, brute force, etc.)
 
-✔️ Threat classification (SQLi, XSS, brute force, etc.)
+Admin alerts & notifications
 
-✔️ Admin alerts & notifications
+Scalable and modular design
 
-✔️ Scalable and modular design
-
-**🔬 Dataset**
+**Dataset**
 
 Datasets Used: NSL-KDD, CICIDS2017, and custom log data
 
@@ -94,32 +88,26 @@ Preprocessing: Extracted features like packet size, protocol, request rate, sess
 
 Balanced Dataset: Applied sampling techniques to handle class imbalance
 
-**🚀 Results**
+**Results**
 
-✅ Achieved 85–95% accuracy depending on attack type
+Achieved 85–95% accuracy depending on attack type
 
-✅ Successfully detected SQL Injection & XSS payloads using NLP-based payload analysis
+Successfully detected SQL Injection & XSS payloads using NLP-based payload analysis
 
-✅ Reduced false positives with anomaly detection
+Reduced false positives with anomaly detection
 
-✅ Provided real-time visualization of threats through an admin dashboard
+Provided real-time visualization of threats through an admin dashboard
 
-**📌 Future Enhancements**
+**Future Enhancements**
 
-🔗 Integration with SIEM tools for enterprise deployment
+Integration with SIEM tools for enterprise deployment
 
-🤖 Use of Deep Reinforcement Learning for adaptive defense
+Use of Deep Reinforcement Learning for adaptive defense
 
-🌐 Extend coverage to IoT network attacks
+Extend coverage to IoT network attacks
 
-☁️ Deploy on cloud platforms for large-scale traffic monitoring
+Deploy on cloud platforms for large-scale traffic monitoring
 
-
-**👨‍💻 Contributors**
-
-**Ramteja Reddy Boggala** – Project Lead, AI/ML & Backend
-
-**Vooranduru Sujan Venkat** – Cyber Security
 
 **Devendra Shendkar** – Frontend
 
