@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Detection Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #e2e8f0; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background-color: #1e293b; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
+        h1 { color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-top: 0; }
+        
+        /* Interactive elements */
+        .btn { background-color: #0ea5e9; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.2s ease-in-out; }
+        .btn:hover { background-color: #0284c7; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(14, 165, 233, 0.3); }
+        .logout-btn { background-color: #ef4444; float: right; }
+        .logout-btn:hover { background-color: #dc2626; box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3); }
+        
+        .data-panel { margin-top: 25px; padding: 20px; background-color: #0f172a; border: 1px solid #334155; border-radius: 5px; min-height: 100px; }
+        pre { white-space: pre-wrap; word-wrap: break-word; color: #a3e635; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn logout-btn" onclick="logout()">Logout</button>
+        <h1>System Dashboard</h1>
+        <p>Welcome to the AI-Based Cyber Threat Detection environment.</p>
+
+        <button class="btn" onclick="testProtectedAPI()">Test Protected API</button>
+
+        <div class="data-panel" id="log-display">
+            <em>Click the button above to test a secure request to your backend.</em>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('No valid session found. Redirecting to login.');
+            window.location.href = '/';
+        }
+
+        async function testProtectedAPI() {
+            const display = document.getElementById('log-display');
+            display.innerHTML = 'Fetching secure system logs...';
+
+            try {
+                const response = await fetch('/api/auth/logs', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    let html = '<table style="width:100%; border-collapse: collapse; text-align: left;">';
+                    html += '<tr style="border-bottom: 1px solid #334155; color: #38bdf8;"><th>User</th><th>IP Address</th><th>Status</th><th>Timestamp</th></tr>';
+
+                    data.threatLogs.forEach(log => {
+                        const statusColor = log.status === 'Success' ? '#4ade80' : '#ef4444';
+                        html += `<tr style="border-bottom: 1px solid #1e293b;">
+                            <td>${log.username}</td>
+                            <td>${log.ip}</td>
+                            <td style="color: ${statusColor}; font-weight: bold;">${log.status}</td>
+                            <td>${new Date(log.timestamp).toLocaleString()}</td>
+                        </tr>`;
+                    });
+                    html += '</table>';
+                    display.innerHTML = html;
+                } else {
+                    const data = await response.json();
+                    display.innerHTML = `<strong>Error:</strong> ${data.message || 'Unable to fetch logs.'}`;
+                }
+            } catch (error) {
+                display.innerHTML = 'Unable to reach the secure API.';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
