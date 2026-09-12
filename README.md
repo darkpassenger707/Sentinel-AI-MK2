@@ -111,6 +111,6 @@ Deploy on cloud platforms for large-scale traffic monitoring
 
 **Devendra Shendkar** – Frontend
 
-**📜 License**
+**License**
 
-This project is licensed under the MIT License – free to use and modify for academic or research purposes.
+This project is licensed under the MIT License. It is free to use and modify for academic or research purposes.
